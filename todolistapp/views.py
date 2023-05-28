@@ -12,6 +12,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
+
+from django.views import View
+from django.db import transaction
+from .forms import PositionForm
+
 # Create your views here.
 class CustomLoginView(LoginView):
     template_name = 'todolistapp/login.html'
@@ -43,6 +48,11 @@ class TaskList(LoginRequiredMixin, ListView):
         contex = super().get_context_data(**kwargs)
         contex['tasks'] = contex['tasks'].filter(user=self.request.user)
         contex['count'] = contex['tasks'].filter(complete=False)
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            contex['tasks'] = contex['tasks'].filter(
+                title__startswith=search_input
+            )
         return contex
 
 class TaskDetail(LoginRequiredMixin, DetailView): 
@@ -67,3 +77,15 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
     model = Task
     fields = '__all__'
     success_url = reverse_lazy('tasks')
+
+class TaskReorder(View):
+    def post(self, request):
+        form = PositionForm(request.POST)
+
+        if form.is_valid():
+            positionList = form.cleaned_data["position"].split(',')
+
+            with transaction.atomic():
+                self.request.user.set_task_order(positionList)
+
+        return redirect(reverse_lazy('tasks'))
