@@ -44,16 +44,20 @@ class RegisterPage(FormView):
 class TaskList(LoginRequiredMixin, ListView): 
     model = Task
     context_object_name = 'tasks'
+    
     def get_context_data(self, **kwargs):
-        contex = super().get_context_data(**kwargs)
-        contex['tasks'] = contex['tasks'].filter(user=self.request.user)
-        contex['count'] = contex['tasks'].filter(complete=False)
+        context = super().get_context_data(**kwargs)
+        context['tasks'] = context['tasks'].filter(user=self.request.user)
+        context['count'] = context['tasks'].filter(complete=False).count()
+
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
-            contex['tasks'] = contex['tasks'].filter(
-                title__startswith=search_input
-            )
-        return contex
+            context['tasks'] = context['tasks'].filter(
+                title__contains=search_input)
+
+        context['search_input'] = search_input
+
+        return context
 
 class TaskDetail(LoginRequiredMixin, DetailView): 
     model = Task
