@@ -1,6 +1,7 @@
 # api/serializers.py
 from rest_framework import serializers
-from todolistapp.models import Task, Device
+from todolistapp.models import Task
+from .models import Device
 
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:

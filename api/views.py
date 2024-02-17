@@ -1,7 +1,9 @@
 # api/views.py
 from rest_framework import viewsets
-from todolistapp.models import Task, Device
-from .serializers import TaskSerializer, DeviceSerializer
+from todolistapp.models import Task
+from .models import Device
+from .serializers import TaskSerializer
+from .serializers import DeviceSerializer
 from rest_framework.permissions import IsAuthenticated
 
 class TaskViewSet(viewsets.ModelViewSet):
