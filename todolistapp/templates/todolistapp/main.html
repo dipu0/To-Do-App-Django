@@ -3,14 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="description"
-        content="This is to do list implemented using Django by Dennis Ivy who is a full stack web developer.">
-
+    <meta name="description" content="This is to do list implemented using Django by Dennis Ivy who is a full stack web developer.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>To Do Items</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
 
@@ -21,19 +17,12 @@
             padding-top: 50px;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-            {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Raleway', sans-serif;
         }
 
-        a,
-        p {
-            color: #4b5156
+        a, p {
+            color: #4b5156;
         }
 
         a {
@@ -44,13 +33,8 @@
             max-width: 550px;
             margin: auto;
             background-color: #fff;
-            -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
             box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
-        }
-
-        input {
-            outline: none;
-            border: none;
+            padding: 20px;
         }
 
         .header-bar {
@@ -59,7 +43,7 @@
             color: #fff;
             padding: 10px;
             border-radius: 5px 5px 0 0;
-            background: linear-gradient(90deg, #EEA390 0%, #EB796F 43%, #EB796F 100%);
+            background: linear-gradient(90deg, #3AAFA9 0%, #2B7A78 100%);
         }
 
         .header-bar a {
@@ -79,6 +63,7 @@
         .task-title {
             display: flex;
             padding: 20px;
+            align-items: center;
         }
 
         .task-title a {
@@ -87,18 +72,18 @@
             margin-left: 10px;
         }
 
-        .task-complete-icon {
+        .task-complete-icon, .task-incomplete-icon {
             height: 20px;
             width: 20px;
-            background-color: rgb(105, 192, 105);
             border-radius: 50%;
         }
 
+        .task-complete-icon {
+            background-color: #DEF2F1;
+        }
+
         .task-incomplete-icon {
-            height: 20px;
-            width: 20px;
             background-color: rgb(218, 218, 218);
-            border-radius: 50%;
         }
 
         .delete-link {
@@ -107,93 +92,73 @@
             color: #cf4949;
             font-size: 22px;
             line-height: 0;
-            padding: 20px 0px;
+            padding: 20px;
         }
-
-        /*Handle Classes*/
-
-        .handle {
-            display: inline-block;
-            padding: 20px 16px;
-            cursor: grab;
-            user-select: none;
-        }
-
-        .handle:after,
-        .handle:before {
-            display: block;
-            content: "";
-        }
-
-        .handle:active,
-        .handle:active:before,
-        .handle:active:after {
-            cursor: grabbing;
-        }
-
-        .dropArea {
-            background-color: #f1f2f6;
-            color: black;
-            border: #ced6e0 1px solid;
-        }
-
-        .selectedTask {
-            opacity: 0.6;
-        }
-
 
         #add-link {
-            color: #EB796F;
+            color: #3AAFA9;
             text-decoration: none;
             font-size: 42px;
-            text-shadow: 1px 1px #81413b;
+            text-shadow: 1px 1px #2B7A78;
         }
 
         #search-add-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
         }
 
-        @media screen and (max-width:320px) {
-            #search-add-wrapper {
-                padding: 10px;
-            }
-        }
-
-        input[type=text],
-        input[type=password],
-        textarea {
+        input[type=text], input[type=password], textarea {
             border: 1px solid #757575;
             border-radius: 5px;
             padding: 10px;
-            width: 90%;
-        }
-
-        label {
-            padding-top: 10px !important;
-            display: block;
-        }
-
-        ::placeholder {
-            font-weight: 300;
-            opacity: 0.5;
+            width: 100%;
+            box-sizing: border-box; /* Ensures padding doesn't add to the width */
         }
 
         .button {
-            border: 1px solid #757575;
+            border: 1px solid #2B7A78;
             background-color: #FFF;
-            color: #EB796F;
+            color: #3AAFA9;
             padding: 10px;
             font-size: 14px;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            display: inline-block;
         }
 
-        .card-body {
-            padding: 20px;
+        @media screen and (max-width: 768px) {
+            .container {
+                max-width: 90%;
+            }
+
+            .task-title a, .delete-link {
+                font-size: 18px; /* Adjust font size for smaller screens */
+            }
+
+            #add-link {
+                font-size: 36px; /* Adjust the plus icon size */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .header-bar, .task-wrapper, #search-add-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .task-title {
+                justify-content: center;
+            }
+
+            .delete-link, .task-title a {
+                padding: 10px 0; /* Adjust padding for very small screens */
+            }
+
+            .button, input[type=text], input[type=password], textarea {
+                width: 100%; /* Make input fields and buttons take full width */
+            }
         }
     </style>
 </head>
@@ -205,6 +170,5 @@
     </div>
 
 </body>
-
 
 </html>
