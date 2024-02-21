@@ -11,4 +11,4 @@ class TaskSerializer(serializers.ModelSerializer):
 class DeviceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Device
-        fields = ['id', 'user', 'device_token', 'device_type', 'active']
+        fields = ['id', 'device_token', 'device_type', 'active']

@@ -19,8 +19,7 @@ urlpatterns = [
 
 #login
 # CMD: curl -X POST http://127.0.0.1:8000/api/token/ -d "username=dipu&password=dipu"
-#windows poweshell: Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/api/token/ -Body "username=dipu&password=dipu"
 
 #get task
 
-#curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NDcwMDU4LCJpYXQiOjE3MDg0NjgyNTgsImp0aSI6IjVjYzBmZDRkMmM0MzQxYmViZmJlOTQ3NTc2NWU5ZWFhIiwidXNlcl9pZCI6MX0.AfhSt5aKNrU_1WLhqUyg5voNzoITAHB-koH5bnTIHBs" http://127.0.0.1:8000/api/tasks/
+#curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTUwMDY5LCJpYXQiOjE3MDg0OTAxMjksImp0aSI6ImY4NjAwYzM4YzI3OTQ1NDlhYTFhODAwNmQzNDRmNzQ3IiwidXNlcl9pZCI6MX0.X493z0gtJzI9NuBJ8vnj6Bpo7YtDLnZo6Bzye-MFXQ4" http://127.0.0.1:8000/api/tasks/
