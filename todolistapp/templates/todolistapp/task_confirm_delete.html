@@ -12,8 +12,30 @@
         text-align: center;
     }
 
+    .header-bar {
+        display: flex;
+        justify-content: flex-start; /* Align items to the start (left) */
+        align-items: center;
+        background: linear-gradient(135deg, #6D5BBA 0%, #8D58BF 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 2px 5px rgba(107, 103, 103, 0.2);
+    }
+
     .header-bar a {
         display: inline-block;
+        color: #7E57C2; /* Darker purple */
+        text-decoration: none;
+        background-color: #EDE7F6; /* Lighter purple background */
+        padding: 10px 15px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .header-bar a {
+        display: flex;
+        justify-content: lef;
         margin-bottom: 20px;
         color: #7E57C2; /* Darker purple */
         text-decoration: none;
