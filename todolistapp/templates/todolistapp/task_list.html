@@ -4,6 +4,7 @@
 <style>
     body, h1, h2, h3, input, button, a {
         margin: 0;
+        margin-top: 50px;
         padding: 0;
         font-family: 'Arial', sans-serif;
     }
@@ -22,18 +23,23 @@
         justify-content: space-between;
         align-items: center;
         padding: 20px;
-        margin-top: 30px;
+    }
+    
+    .search-group {
+        display: flex;
+        flex-grow: 1; 
+        margin-right: 10px; 
     }
 
     input[type='text'] {
         flex-grow: 1;
         margin-right: 10px;
-        background-color: white; /* White background for search input */
+        background-color: white;
         border: 1px solid #ccc;
         border-radius: 4px;
         padding: 10px;
-        width: auto;
     }
+    
 
     .button, #add-link {
         background-color: #6D5BBA;
@@ -42,9 +48,8 @@
         border-radius: 5px;
         text-decoration: none;
         display: inline-block;
-        transition: background-color 0.3s;
     }
-
+    
     .button:hover, #add-link:hover {
         background-color: #8D58BF;
     }
