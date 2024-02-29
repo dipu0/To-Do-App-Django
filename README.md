@@ -32,8 +32,8 @@ Before running this project, you should have the following installed:
 
 1. Clone the repository to your local machine:
    ```
-   git clone https://github.com/<dipu0>/<To-Do-List-App-Django>.git
-   cd <repository-name>
+   git clone https://github.com/dipu0/To-Do-List-App-Django.git
+   cd To-Do-List-App-Django
    ```
 
 2. Install the required packages:
